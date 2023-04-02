@@ -7,7 +7,7 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var connetionString = builder.Configuration.GetConnectionString("FilmeConnection");
-builder.Services.AddDbContext<FilmeContext>(opts => opts.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString)));
+builder.Services.AddDbContext<FilmeContext>(opts => opts.UseNpgsql(connetionString));
 
 // Add services to the container.
 
